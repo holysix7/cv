@@ -1,157 +1,184 @@
-import './App.css'
+import { MapPin, Phone, Mail, Download, Blocks, Database, Layers } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { EXPERIENCES, SKILLS } from "./const";
+import { LinkedinIcon } from "./assets/icons/LinkedinIcon";
+import { GithubIcon } from "./assets/icons/GithubIcon";
+import AvatarImg from './assets/images/avatar-close.png';
 
-function App() {
-  const experiences = [
-    {
-      role: "Frontend Architect",
-      company: "Hyperscal PTE. LTD.",
-      date: "03-06-2024 - Present",
-      descriptions: [
-        "Create UI Components based on team design",
-        "Create reusable component library",
-        "Create documentations for each UI Components using StorybookJS",
-        "Create interaction testing using StorybookJS & necessary tests using Jest",
-        "Using turbo repo as monorepo",
-        "Create playwright to integrate with github action",
-        "Implement atomic design & RBAC",
-        "Create admin panel to control each tenants"
-      ]
-    },
-    {
-      role: "Software Engineer",
-      company: "Hyperscal PTE. LTD.",
-      date: "06-01-2023 - Present",
-      descriptions: [
-        "Enhancement to develop system improvement",
-        "Maintenance Web Application using Laravel, Lumen, Go, Python, AngularJS, PostgreSQL",
-        "Appointed as Front End Architect, responsible for creating UI components based on Figma"
-      ]
-    },
-    {
-      role: "Web Developer",
-      company: "PT. Valuestream International",
-      date: "06-10-2021 - 06-01-2023",
-      descriptions: [
-        "Create some plugin to develop projects",
-        "Create some API to consume in jquery",
-        "Build Project using PHP with framework internal based on PHP Phalcon"
-      ]
-    },
-    {
-      role: "Software Engineer",
-      company: "PT. Tri-Saudara Sentosa Industri",
-      date: "21-08-2020 - 06-10-2021",
-      descriptions: [
-        "Managing a running system",
-        "Developing API using Ruby on Rails",
-        "Developing Mobile Apps using React Native"
-      ]
-    },
-    {
-      role: "Backend Developer",
-      company: "PT. Deva Teknologi Indonesia",
-      date: "04-11-2019 - 10-04-2020",
-      descriptions: [
-        "Create Restful API & Build Microservices with PHP Lumen",
-        "Integration with 3rd Party"
-      ]
-    },
-    {
-      role: "Technical Support",
-      company: "PT. Melvar Lintasnusa",
-      date: "25-02-2019 - 25-04-2019",
-      descriptions: ["Installation Network"]
-    }
-  ];
-
-  const skills = {
-    Programming: ["PHP", "Laravel", "Ruby", "Python", "Go", "TypeScript", "React", "NextJS", "React Native", "Angular", "Storybook", "Remix"],
-    Database: ["MySQL", "PostgreSQL", "Sqlite"],
-    Others: ["Microservice", "MonoRepo", "Ubuntu", "English"]
-  };
+export default function App() {
 
   return (
-    <div className="container">
-      {/* Header Section */}
-      <header className="header">
-        <h1>Fikri Reformasi Gunawan</h1>
-        <h2>Software Engineer | Frontend Architect</h2>
-        <div className="contact-info">
-          <span>📍 Bandung, Indonesia</span> | 
-          <span>📞 +6281324141128</span> | 
-          <span>📧 fikrireformasig@gmail.com</span> |
-          <span>🔗 <a href="https://www.linkedin.com/in/fikri-reformasi-gunawan/" target="_blank" rel="noreferrer">LinkedIn</a></span>
+    <div className="min-h-screen bg-[#f7f8f6] font-sans pb-12 w-full">
+      <header className="bg-[#2c3227] text-white pt-14 pb-28 w-full text-center px-6 md:px-12">
+        <div className="w-full flex flex-col items-center">
+          <div className="w-28 h-28 rounded-full border-4 border-[#8b9c73] overflow-hidden mb-5 bg-[#3f4736] shadow-lg">
+            <img 
+              src={AvatarImg}
+              alt="Fikri Reformasi Gunawan" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
+            FIKRI REFORMASI GUNAWAN
+          </h1>
+          <h2 className="text-[#a3b388] font-medium tracking-widest text-sm">
+            SOFTWARE ENGINEER / FRONTEND ARCHITECT
+          </h2>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap justify-center gap-5 text-sm text-stone-300">
+              <h3 className="flex items-center gap-1"><MapPin size={16} /> Bandung/Jakarta</h3>
+            </div>
+            <div className="flex flex-wrap justify-center gap-5 text-sm text-stone-300 mb-10">
+              <a href="mailto:fikrireformasig@gmail.com?subject=Hi%20Fikri&body=Hello%20Fikri," className="flex items-center gap-1 underline" target="_blank" rel="noopener noreferrer"><Mail size={16} /></a>
+              <a href="https://www.linkedin.com/in/fikri-reformasi-gunawan/" className="flex items-center gap-1 underline" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={16} /></a>
+              <a href="https://www.github.com/holysix7" className="flex items-center gap-1 underline" target="_blank" rel="noopener noreferrer"><GithubIcon size={16} /></a>
+            </div>
+          </div>
+
+          <a href="/cv/CV-FikriReformasiGunawan.pdf" download>
+            <Button className="bg-[#8b9c73] hover:bg-[#73825d] text-white font-semibold rounded-full px-8 py-6 shadow-md transition-all cursor-pointer">
+              <Download className="mr-2 h-5 w-5" /> DOWNLOAD CV
+            </Button>
+          </a>
         </div>
       </header>
 
-      {/* Profile Section */}
-      <section className="section">
-        <h3>Profile</h3>
-        <p>
-          I graduated from Politeknik Pos Indonesia (ULBI), Informatics Engineering, Diploma (D3). 
-          My mission is to get better day by day, specializing in Frontend Architecture, Microservices, and scalable web applications.
-        </p>
-      </section>
+      <main className="w-full px-6 md:px-12 lg:px-24 mx-auto -mt-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          
+          <div className="space-y-8 lg:col-span-1">
+            <Card className="shadow-lg border-none rounded-xl">
+              <CardHeader className="pb-3 text-center border-b border-stone-100 mb-4">
+                <CardTitle className="text-lg font-extrabold tracking-wide text-[#2c3227]">ABOUT ME</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-stone-600 leading-relaxed text-justify px-6">
+                <p>
+                  I possess skills in several technologies, including PHP with frameworks such as CodeIgniter, Laravel, Lumen, and Phalcon. Additionally, I am proficient in Ruby with the RoR framework, as well as React JS, Typescript, NextJS, Remix, and React Native.
+                </p>
+                <p>
+                  Throughout my career journey, I have become familiar with Linux, particularly CentOS. I also have hands-on experience working with PostgreSQL and MySQL databases. These skills enable me to develop reliable and efficient software solutions.
+                </p>
+              </CardContent>
+            </Card>
 
-      {/* Experience Section */}
-      <section className="section">
-        <h3>Experience</h3>
-        <div className="experience-list">
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-item">
-              <div className="exp-header">
-                <h4>{exp.role}</h4>
-                <span className="exp-date">{exp.date}</span>
-              </div>
-              <div className="exp-company">{exp.company}</div>
-              <ul>
-                {exp.descriptions.map((desc, i) => (
-                  <li key={i}>{desc}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+            <Card className="shadow-lg border-none rounded-xl">
+              <CardHeader className="pb-3 text-center border-b border-stone-100 mb-4">
+                <CardTitle className="text-lg font-extrabold tracking-wide text-[#2c3227]">CONTACT INFORMATION</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5 px-6">
+                <div className="flex items-center gap-4 text-sm text-stone-700">
+                  <div className="bg-[#e8ebe3] p-2.5 rounded-full text-[#6b7b56]"><MapPin size={18} /></div>
+                  <span className="font-medium">Bandung</span>
+                </div>
+                <div className="flex items-center gap-4 text-sm text-stone-700">
+                  <div className="bg-[#e8ebe3] p-2.5 rounded-full text-[#6b7b56]"><Mail size={18} /></div>
+                  <span className="truncate font-medium">
+                    <a href="mailto:fikrireformasig@gmail.com?subject=Hi%20Fikri&body=Hello%20Fikri," className="flex items-center gap-1 underline" target="_blank" rel="noopener noreferrer">
+                    fikrireformasig@gmail.com
+                    </a>
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
-      {/* Skills Section */}
-      <section className="section">
-        <h3>Skills</h3>
-        <div className="skills-container">
-          <div className="skill-category">
-            <h4>Programming & Frameworks</h4>
-            <div className="tags">
-              {skills.Programming.map(skill => <span key={skill} className="tag">{skill}</span>)}
-            </div>
+          <div className="lg:col-span-2">
+            <Card className="shadow-lg border-none h-full rounded-xl">
+              <CardHeader className="pb-3 text-center border-b border-stone-100 mb-6">
+                <CardTitle className="text-lg font-extrabold tracking-wide text-[#2c3227]">EXPERIENCE</CardTitle>
+              </CardHeader>
+              <CardContent className="px-8">
+                <div className="relative border-l-2 border-stone-200 ml-4 mt-4">
+                  {EXPERIENCES.map((exp, idx) => (
+                    <div key={idx} className="mb-10 relative text-center lg:text-left">
+                      <span className="absolute -left-[10px] top-1 h-4 w-4 rounded-full bg-[#8b9c73] ring-4 ring-white shadow-sm" />
+                      
+                      <div className="flex flex-col lg:items-center mb-4 relative -left-[10px]">
+                         <h4 className="font-extrabold text-[#2c3227]">{exp.role}</h4>
+                         <div className="text-sm font-semibold text-stone-600 mb-1">{exp.company}</div>
+                         <div className="text-xs text-stone-400 font-medium">{exp.date}</div>
+                      </div>
+                      
+                      <div className="relative -right-[80px]">
+                        <ul className="list-disc text-sm text-stone-600 space-y-2 text-left ml-4 lg:ml-0 lg:list-inside lg:flex lg:flex-col">
+                          {exp.descriptions.map((desc, i) => (
+                            <li key={i} className="max-w-md">{desc}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
-          <div className="skill-category">
-            <h4>Database</h4>
-            <div className="tags">
-              {skills.Database.map(skill => <span key={skill} className="tag">{skill}</span>)}
-            </div>
-          </div>
-          <div className="skill-category">
-            <h4>Others</h4>
-            <div className="tags">
-              {skills.Others.map(skill => <span key={skill} className="tag">{skill}</span>)}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Education & Certs */}
-      <section className="section">
-        <h3>Education & Certificates</h3>
-        <div className="education">
-          <h4>Politeknik Pos Indonesia (ULBI)</h4>
-          <p>Diploma Informatics Engineering (D3) | 2016 - 2019 | GPA: 3.27</p>
-          <br/>
-          <h4>Certificates</h4>
-          <p>IC3 Computing Fundamentals</p>
+          <div className="space-y-8 lg:col-span-1">
+            <Card className="shadow-lg border-none rounded-xl">
+              <CardHeader className="pb-3 text-center border-b border-stone-100 mb-4">
+                <CardTitle className="text-lg font-extrabold tracking-wide text-[#2c3227]">SKILLS</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-7 px-6">
+                <div>
+                  <h4 className="text-sm font-bold mb-3 flex items-center justify-center gap-2 text-[#2c3227]">
+                    <Blocks size={18} className="text-[#8b9c73]" /> Programming
+                  </h4>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {SKILLS.Programming.map(skill => (
+                      <Badge key={skill} variant="secondary" className="bg-[#e8ebe3] hover:bg-[#d5dacf] text-[#3f4736] font-medium border border-[#d5dacf]">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold mb-3 flex items-center justify-center gap-2 text-[#2c3227]">
+                    <Database size={18} className="text-[#8b9c73]" /> Database
+                  </h4>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {SKILLS.Database.map(skill => (
+                      <Badge key={skill} variant="secondary" className="bg-[#e8ebe3] hover:bg-[#d5dacf] text-[#3f4736] font-medium border border-[#d5dacf]">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold mb-3 flex items-center justify-center gap-2 text-[#2c3227]">
+                    <Layers size={18} className="text-[#8b9c73]" /> Others
+                  </h4>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {SKILLS.Others.map(skill => (
+                      <Badge key={skill} variant="secondary" className="bg-[#e8ebe3] hover:bg-[#d5dacf] text-[#3f4736] font-medium border border-[#d5dacf]">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-lg border-none rounded-xl text-center">
+              <CardHeader className="pb-3 border-b border-stone-100 mb-4">
+                <CardTitle className="text-lg font-extrabold tracking-wide text-[#2c3227]">EDUCATION</CardTitle>
+              </CardHeader>
+              <CardContent className="px-6 text-left">
+                <h4 className="font-extrabold text-[#2c3227] text-sm text-center">Politeknik Pos Indonesia</h4>
+                <p className="text-xs text-stone-400 mb-2 mt-1 text-center">Bandung, 2016-2019</p>
+                <p className="text-sm text-stone-600">Diploma Informatics Engineering (D3)</p>
+                <p className="text-sm text-[#8b9c73] font-bold mt-1">GPA 3.27</p>
+              </CardContent>
+            </Card>
+          </div>
+
         </div>
-      </section>
+      </main>
     </div>
-  )
+  );
 }
-
-export default App
